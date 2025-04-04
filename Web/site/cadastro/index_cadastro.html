@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>CypherTech - Cadastre-se</title>
+    <link rel="shortcut icon" type="imagex/png" href="../imgs/icone.png">
+    <script src="main_cadastro.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style_cadastro.css">
+</head>
+<body>
+    <!-- barra superior -->
+    <div class="head">
+        <a href="../index.html">
+            <img src="../imgs/logo.jpg" alt="Logo" class="logo">
+        </a>
+        <div class="menu">
+            <a href="../index.html">Tela Inicial</a>
+            <a href="../sobre_nos/index_sobre_nos.html">Sobre Nós</a>
+        </div>
+    </div>
+
+    <!-- conteudo central -->
+    <div class="campo_cadastro">
+            <div class="dados">Nome: <input type="text" id="nome"></div>
+            <div class="dados">Sobrenome: <input type="text" id="sobrenome"></div>
+            <div class="dados">Data de Nascimento: <input type="date" id="dt_nascimento"></div>
+            <div class="dados">CPF / CNPJ: <input type="text" id="CPF_CNPJ" minlength="11" maxlength="14"></div>
+            <div class="dados">Email: <input type="email" id="e-mail"></div>
+            <div class="dados">Senha: <input type="password" id="senha"></div>
+            <div class="termo">Aceite todos os termos <input type="checkbox" id="termo"></div>
+            <div id="erro"></div>
+        <input type="button" value="cadastrar" onclick="cadastrar()" class="botao"/>
+
+        <div class="link">
+            Já tem cadastro?
+            <a href="../entrar/index_entrar.html" class="link">Entrar</a>
+        </div>
+    </div>
+
+    <!-- barra inferior -->
+    <div class="footer">
+        © CypherTech Solutions
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+a = prompt("Insira um numero")
+b = prompt("Insira um numero")
+c = prompt("Insira um numero")
+d = prompt("Insira um numero")
+e = prompt("Insira um numero")
+f = prompt("Insira um numero")
+console.log((a > b && c < d) || e !== f)

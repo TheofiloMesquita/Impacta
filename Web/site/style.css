@@ -1,0 +1,54 @@
+.head{
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+}
+.conteudo{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    background-color: cornflowerblue;
+}
+
+/* estilização padrão */
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.menu{
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+}
+.logo{
+    width: 20vh;
+}
+.dados{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+}
+.link{
+    color: black;
+}
+.botao{
+    border-radius: 15px;
+    width: 10vw;
+    font-size: 20px;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    background-color: black;
+    color: cornflowerblue;
+}

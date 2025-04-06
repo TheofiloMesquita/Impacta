@@ -1,8 +1,8 @@
 // Garantindo que tudo foi carregado no html
 document.addEventListener('DOMContentLoaded', function() {
     const senha = document.getElementById("senha");
-    const confirmacao = document.getElementById("confirmacao");
     const iconSenha = document.getElementById("icon-senha");
+    const confirmacao = document.getElementById("confirmacao");
     const iconConfirmacao = document.getElementById("icon-confirmacao");
 
     function mostrar_senha() {

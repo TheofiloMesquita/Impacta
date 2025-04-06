@@ -1,14 +1,13 @@
 .campo_cadastro{
-    height: 75vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     font-size: 15px;
-    background-color: cornflowerblue;
 }
 .campo_cadastro .formulario{
-    height: 65vh;
+    height: 70vh;
     width: 25vw;
     display: flex;
     align-items: center;

@@ -1,3 +1,23 @@
+// Garantindo que tudo foi carregado no html
+document.addEventListener('DOMContentLoaded', function() {
+    const senha = document.getElementById("senha");
+    const iconSenha = document.getElementById("icon-senha");
+    
+    function mostrar_senha() {
+        if (senha.type === "password") {
+            senha.setAttribute("type", "text");
+            iconSenha.src = "../imgs/hide.png";
+        } else {
+            senha.setAttribute("type", "password");
+            iconSenha.src = "../imgs/show.png";
+        }
+    }
+    
+    // Tornar a função acessível globalmente se necessário
+    window.mostrar_senha = mostrar_senha;
+    window.mostrar_confirmacao = mostrar_confirmacao;
+});
+
 async function entrar() {
 
     // puxando os dados do html

@@ -1,7 +1,7 @@
 // Garantindo que tudo foi carregado no html
 document.addEventListener('DOMContentLoaded', function() {
-    const senha = document.getElementById("senha");
-    const iconSenha = document.getElementById("icon-senha");
+    let senha = document.getElementById("senha");
+    let iconSenha = document.getElementById("icon-senha");
     
     function mostrar_senha() {
         if (senha.type === "password") {
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Tornar a função acessível globalmente se necessário
     window.mostrar_senha = mostrar_senha;
-    window.mostrar_confirmacao = mostrar_confirmacao;
 });
 
 async function entrar() {
@@ -28,7 +27,7 @@ async function entrar() {
     if(email == "" || senha == ""){
         document.getElementById("erro").innerHTML = "Preencha todos os campos"
         document.getElementById("erro").style.color = 'red'
-        document.getElementById("e-mail").style.borderColor = 'red'
+        document.getElementById("email").style.borderColor = 'red'
         document.getElementById("senha").style.borderColor = 'red'
         return
 

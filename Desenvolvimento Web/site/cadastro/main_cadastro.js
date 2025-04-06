@@ -1,9 +1,9 @@
 // Garantindo que tudo foi carregado no html
 document.addEventListener('DOMContentLoaded', function() {
-    const senha = document.getElementById("senha");
-    const iconSenha = document.getElementById("icon-senha");
-    const confirmacao = document.getElementById("confirmacao");
-    const iconConfirmacao = document.getElementById("icon-confirmacao");
+    let senha = document.getElementById("senha");
+    let iconSenha = document.getElementById("icon-senha");
+    let confirmacao = document.getElementById("confirmacao");
+    let iconConfirmacao = document.getElementById("icon-confirmacao");
 
     function mostrar_senha() {
         if (senha.type === "password") {
@@ -37,7 +37,7 @@ async function cadastrar(){
     let sobrenome = document.getElementById("sobrenome").value
     let dt_nascimento = document.getElementById("dt_nascimento").value
     let cpf_cnpj = document.getElementById("CPF_CNPJ").value
-    let email = document.getElementById("e-mail").value
+    let email = document.getElementById("email").value
     let senha = document.getElementById("senha").value
     let confirmacao = document.getElementById("senha").value
     let termo = document.getElementById("termo").checked
@@ -53,8 +53,8 @@ async function cadastrar(){
         document.getElementById("dt_nascimento").style.borderColor = 'black',
         document.getElementById("CPF_CNPJ").style.color = 'black',
         document.getElementById("CPF_CNPJ").style.borderColor = 'black',
-        document.getElementById("e-mail").style.color = 'black',
-        document.getElementById("e-mail").style.borderColor = 'black',
+        document.getElementById("email").style.color = 'black',
+        document.getElementById("email").style.borderColor = 'black',
         document.getElementById("senha").style.color = 'black',
         document.getElementById("senha").style.borderColor = 'black',
         document.getElementById("confirmacao").style.color = 'black',
@@ -71,7 +71,7 @@ async function cadastrar(){
         document.getElementById("sobrenome").style.borderColor = 'red'
         document.getElementById("dt_nascimento").style.borderColor = 'red'
         document.getElementById("CPF_CNPJ").style.borderColor = 'red'
-        document.getElementById("e-mail").style.borderColor = 'red'
+        document.getElementById("email").style.borderColor = 'red'
         document.getElementById("senha").style.borderColor = 'red'
         document.getElementById("confirmacao").style.borderColor = 'red'
         return
@@ -90,8 +90,8 @@ async function cadastrar(){
         limpar
         document.getElementById("erro").innerHTML = "Insira um email válido"
         document.getElementById("erro").style.color = 'red'
-        document.getElementById("e-mail").style.color = 'red'
-        document.getElementById("e-mail").style.borderColor = 'red'
+        document.getElementById("email").style.color = 'red'
+        document.getElementById("email").style.borderColor = 'red'
         return
 
     // verificando se a senha tem no min 6 caracteres
@@ -103,8 +103,8 @@ async function cadastrar(){
         document.getElementById("senha").style.borderColor = 'red'
         return
 
-    // volidando as senhas conferem
-    }else if(senha != confirmacao){
+    // validando se as senhas conferem
+    }else if(!(senha === confirmacao)){
         document.getElementById("erro").innerHTML = "Sua senha deve ter no min 6 caracteres"
         document.getElementById("erro").style.color = 'red'
         document.getElementById("senha").style.color = 'red'
@@ -161,13 +161,13 @@ async function cadastrar(){
         // validando se o email e o cpf ou cnpj ja foram registrados
         if(response.data.errors.email == 'The email has already been taken.' && response.data.errors.cpf_cnpj == 'The cpf cnpj has already been taken.'){
             limpar
-            document.getElementById("erro").innerHTML = "O E-mail e o CPF ja existem"
+            document.getElementById("erro").innerHTML = "O Email e o CPF ja existem"
             document.getElementById("erro").style.color = 'red'
 
         // validando se o email ja foi registrado
         }else if(response.data.errors.email == 'The email has already been taken.'){
             limpar
-            document.getElementById("erro").innerHTML = "O E-mail ja existe"
+            document.getElementById("erro").innerHTML = "O Email ja existe"
             document.getElementById("erro").style.color = 'red'
 
         // validando se o CPF ja foi registrado

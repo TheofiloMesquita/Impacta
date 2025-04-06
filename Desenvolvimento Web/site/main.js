@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Seleciona todos os indicadores (bolinhas de navegação)
     let indicadores = document.querySelectorAll('.indicador');
     
+    // criando variavel pra contar o slide atual
     let slideAtual = 0;
+
+    // armazena todos os slides
     let totalSlides = slides.length;
     
     // Função que atualiza a posição do carrossel e o estado dos indicadores
@@ -48,5 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
         slideAtual = (slideAtual < totalSlides - 1) ? slideAtual + 1 : 0;
         // Atualiza a exibição
         atualizarCarrossel();
-    }, 4000); // Executa a cada 3000 milissegundos (3 segundos)
+    }, 5000); // Executa a cada 5000 milissegundos (3 segundos)
 });

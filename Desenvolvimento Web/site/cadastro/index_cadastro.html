@@ -8,52 +8,79 @@
     <script src="main_cadastro.js"></script>
 </head>
 <body>
-    <!-- barra superior -->
-    <div class="head">
+    <!-- BARRA SUPERIOR -->
+    <header class="head">
         <a href="../index.html">
-            <img src="../imgs/logo.jpg" alt="Logo" class="logo">
+            <img src="../imgs/logo.jpg" alt="Logo CypherTech" class="logo">
         </a>
-        <div class="menu">
+        <nav class="menu">
             <a href="../index.html">Tela Inicial</a>
             <a href="../sobre_nos/index_sobre_nos.html">Sobre Nós</a>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- conteudo central -->
-    <div class="campo_cadastro">
-        <div class="formulario">
-            <div class="dados">Nome: <input type="text" class="usuario" id="nome"></div>
-            <div class="dados">Sobrenome: <input type="text" class="usuario" id="sobrenome"></div>
-            <div class="dados">Data de Nascimento: <input type="date" class="usuario" id="dt_nascimento"></div>
-            <div class="dados">CPF / CNPJ: <input type="text" class="usuario" id="CPF_CNPJ" minlength="11" maxlength="14"></div>
-            <div class="dados">Email: <input type="email" class="usuario" id="e-mail"></div>
+    <!-- FORMULÁRIO DE CADASTRO -->
+    <main class="campo_cadastro">
+        <form class="formulario" id="form-cadastro">
+            <h1>Cadastre-se</h1>
             
             <div class="dados">
-                Senha: <input type="password" class="usuario" id="senha">
-                <img src="../imgs/show.png" alt="exibir" onclick="mostrar_senha()" class="icon" id="icon-senha">
+                <label for="nome">Nome:</label>
+                <input type="text" class="usuario" id="nome" required>
             </div>
             
             <div class="dados">
-                Confirme sua Senha: <input type="password" class="usuario" id="confirmacao">
-                <img src="../imgs/show.png" alt="exibir" onclick="mostrar_confirmacao()" class="icon" id="icon-confirmacao">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" class="usuario" id="sobrenome" required>
+            </div>
+            
+            <div class="dados">
+                <label for="dt_nascimento">Data de Nascimento:</label>
+                <input type="date" class="usuario" id="dt_nascimento" required>
+            </div>
+            
+            <div class="dados">
+                <label for="CPF_CNPJ">CPF/CNPJ:</label>
+                <input type="text" class="usuario" id="CPF_CNPJ" minlength="11" maxlength="14" required>
+            </div>
+            
+            <div class="dados">
+                <label for="email">Email:</label>
+                <input type="email" class="usuario" id="email" required>
+            </div>
+            
+            <div class="dados">
+                <label for="senha">Senha:</label>
+                <input type="password" class="usuario" id="senha" minlength="6" required>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWV5ZSI+PHBhdGggZD0iTTIgMTJzMy00IDctNCA3IDQgNyA0LTMgNC03IDQtNy00LTctNFoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+PC9zdmc+" 
+                     alt="Mostrar senha" class="icon" id="icon-senha">
+            </div>
+            
+            <div class="dados">
+                <label for="confirmacao">Confirme sua Senha:</label>
+                <input type="password" class="usuario" id="confirmacao" minlength="6" required>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWV5ZSI+PHBhdGggZD0iTTIgMTJzMy00IDctNCA3IDQgNyA0LTMgNC03IDQtNy00LTctNFoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+PC9zdmc+" 
+                     alt="Mostrar senha" class="icon" id="icon-confirmacao">
             </div>
 
-            <div class="checkbox">Aceite todos os termos <input type="checkbox" id="termo"></div>
+            <div class="checkbox">
+                <input type="checkbox" id="termo" required>
+                <label for="termo">Aceito os termos de uso</label>
+            </div>
             
             <div id="erro"></div>
             
-            <input type="button" value="cadastrar" onclick="cadastrar()" class="botao"/>
+            <button type="submit" class="botao">Cadastrar</button>
             
-            <div>
-                Já tem cadastro?
-                <a href="../entrar/index_entrar.html" class="link">Entrar</a>
+            <div style="text-align: center; margin-top: 15px;">
+                Já tem cadastro? <a href="../entrar/index_entrar.html" class="link">Entrar</a>
             </div>
-        </div>
-    </div>
+        </form>
+    </main>
 
-    <!-- barra inferior -->
-    <div class="footer">
+    <!-- RODAPÉ -->
+    <footer class="footer">
         © CypherTech Solutions
-    </div>
+    </footer>
 </body>
 </html>

@@ -1,13 +1,5 @@
-.head{
-    width: 100vw;
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: black;
-}
 .conteudo{
-    height: 60vh;
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,32 +15,47 @@ a{
     text-decoration: none;
     color: cornflowerblue;
 }
+.head{
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+}
 .menu{
     width: 25vw;
     display: flex;
     justify-content: space-around;
 }
 .logo{
-    width: 20vh;
+    width: 15vh;
 }
 .dados{
+    width: 20vw;
+    height: 6vh;
     display: flex;
     flex-direction: column;
-    width: 25vw;
+    justify-content: space-evenly;
+}
+.usuario{
+    border-radius: 5px;
+    border: 1px solid black;
 }
 .link{
     color: black;
 }
 .botao{
-    border-radius: 15px;
     width: 10vw;
-    font-size: 20px;
+    align-self: center;
+    border-radius: 15px;
+    font-size: 15px;
 }
 .footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20vh;
+    height: 10vh;
     background-color: black;
     color: cornflowerblue;
 }

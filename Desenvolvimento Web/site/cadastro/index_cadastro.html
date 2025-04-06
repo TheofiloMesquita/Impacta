@@ -3,9 +3,9 @@
 <head>
     <title>CypherTech - Cadastre-se</title>
     <link rel="shortcut icon" type="imagex/png" href="../imgs/icone.png">
-    <script src="main_cadastro.js"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style_cadastro.css">
+    <script src="main_cadastro.js"></script>
 </head>
 <body>
     <!-- barra superior -->
@@ -21,19 +21,33 @@
 
     <!-- conteudo central -->
     <div class="campo_cadastro">
-            <div class="dados">Nome: <input type="text" id="nome"></div>
-            <div class="dados">Sobrenome: <input type="text" id="sobrenome"></div>
-            <div class="dados">Data de Nascimento: <input type="date" id="dt_nascimento"></div>
-            <div class="dados">CPF / CNPJ: <input type="text" id="CPF_CNPJ" minlength="11" maxlength="14"></div>
-            <div class="dados">Email: <input type="email" id="e-mail"></div>
-            <div class="dados">Senha: <input type="password" id="senha"></div>
-            <div class="termo">Aceite todos os termos <input type="checkbox" id="termo"></div>
-            <div id="erro"></div>
-        <input type="button" value="cadastrar" onclick="cadastrar()" class="botao"/>
+        <div class="formulario">
+            <div class="dados">Nome: <input type="text" class="usuario" id="nome"></div>
+            <div class="dados">Sobrenome: <input type="text" class="usuario" id="sobrenome"></div>
+            <div class="dados">Data de Nascimento: <input type="date" class="usuario" id="dt_nascimento"></div>
+            <div class="dados">CPF / CNPJ: <input type="text" class="usuario" id="CPF_CNPJ" minlength="11" maxlength="14"></div>
+            <div class="dados">Email: <input type="email" class="usuario" id="e-mail"></div>
+            
+            <div class="dados">
+                Senha: <input type="password" class="usuario" id="senha">
+                <img src="../imgs/show.png" alt="exibir" onclick="mostrar_senha()" class="icon" id="icon-senha">
+            </div>
+            
+            <div class="dados">
+                Confirme sua Senha: <input type="password" class="usuario" id="confirmacao">
+                <img src="../imgs/show.png" alt="exibir" onclick="mostrar_confirmacao()" class="icon" id="icon-confirmacao">
+            </div>
 
-        <div class="link">
-            Já tem cadastro?
-            <a href="../entrar/index_entrar.html" class="link">Entrar</a>
+            <div class="checkbox">Aceite todos os termos <input type="checkbox" id="termo"></div>
+            
+            <div id="erro"></div>
+            
+            <input type="button" value="cadastrar" onclick="cadastrar()" class="botao"/>
+            
+            <div>
+                Já tem cadastro?
+                <a href="../entrar/index_entrar.html" class="link">Entrar</a>
+            </div>
         </div>
     </div>
 

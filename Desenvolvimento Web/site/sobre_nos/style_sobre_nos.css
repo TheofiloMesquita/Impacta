@@ -1,7 +1,7 @@
 .conteudo_quem_somos{
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: 75vh;
     justify-content: space-around;
     font-size: 20px;
     background-color: cornflowerblue;

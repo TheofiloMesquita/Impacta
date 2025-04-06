@@ -1,3 +1,35 @@
+// Garantindo que tudo foi carregado no html
+document.addEventListener('DOMContentLoaded', function() {
+    const senha = document.getElementById("senha");
+    const confirmacao = document.getElementById("confirmacao");
+    const iconSenha = document.getElementById("icon-senha");
+    const iconConfirmacao = document.getElementById("icon-confirmacao");
+
+    function mostrar_senha() {
+        if (senha.type === "password") {
+            senha.setAttribute("type", "text");
+            iconSenha.src = "../imgs/hide.png";
+        } else {
+            senha.setAttribute("type", "password");
+            iconSenha.src = "../imgs/show.png";
+        }
+    }
+
+    function mostrar_confirmacao() {
+        if (confirmacao.type === "password") {
+            confirmacao.setAttribute("type", "text");
+            iconConfirmacao.src = "../imgs/hide.png";
+        } else {
+            confirmacao.setAttribute("type", "password");
+            iconConfirmacao.src = "../imgs/show.png";
+        }
+    }
+
+    // Tornar a função acessível globalmente se necessário
+    window.mostrar_senha = mostrar_senha;
+    window.mostrar_confirmacao = mostrar_confirmacao;
+});
+
 async function cadastrar(){
     
     // puxando os dados do html e salvando nas variáveis
@@ -7,6 +39,7 @@ async function cadastrar(){
     let cpf_cnpj = document.getElementById("CPF_CNPJ").value
     let email = document.getElementById("e-mail").value
     let senha = document.getElementById("senha").value
+    let confirmacao = document.getElementById("senha").value
     let termo = document.getElementById("termo").checked
 
     // volta a estilização padrão da página
@@ -23,7 +56,10 @@ async function cadastrar(){
         document.getElementById("e-mail").style.color = 'black',
         document.getElementById("e-mail").style.borderColor = 'black',
         document.getElementById("senha").style.color = 'black',
-        document.getElementById("senha").style.borderColor = 'black'
+        document.getElementById("senha").style.borderColor = 'black',
+        document.getElementById("confirmacao").style.color = 'black',
+        document.getElementById("confirmacao").style.borderColor = 'black'
+
     ]
 
     // verificando se os campos estão preenchidos
@@ -37,6 +73,7 @@ async function cadastrar(){
         document.getElementById("CPF_CNPJ").style.borderColor = 'red'
         document.getElementById("e-mail").style.borderColor = 'red'
         document.getElementById("senha").style.borderColor = 'red'
+        document.getElementById("confirmacao").style.borderColor = 'red'
         return
 
     // verificando se o cpf foi inserido no formato válido
@@ -64,6 +101,16 @@ async function cadastrar(){
         document.getElementById("erro").style.color = 'red'
         document.getElementById("senha").style.color = 'red'
         document.getElementById("senha").style.borderColor = 'red'
+        return
+
+    // volidando as senhas conferem
+    }else if(senha != confirmacao){
+        document.getElementById("erro").innerHTML = "Sua senha deve ter no min 6 caracteres"
+        document.getElementById("erro").style.color = 'red'
+        document.getElementById("senha").style.color = 'red'
+        document.getElementById("senha").style.borderColor = 'red'
+        document.getElementById("confirmacao").style.color = 'red'
+        document.getElementById("confirmacao").style.borderColor = 'red'
         return
 
     // volta a estilização padrão da página

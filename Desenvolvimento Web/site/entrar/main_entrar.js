@@ -1,77 +1,111 @@
-// Garantindo que tudo foi carregado no html
-document.addEventListener('DOMContentLoaded', function() {
-    let senha = document.getElementById("senha");
-    let iconSenha = document.getElementById("icon-senha");
+/**
+ * Alterna a visibilidade da senha no campo de input
+ * @param {HTMLInputElement} campoInput - Campo de senha
+ * @param {HTMLImageElement} icone - Ícone de visibilidade
+ */
+function togglePasswordVisibility(campoInput, icone) {
+    let isPassword = campoInput.type === "password";
+    campoInput.type = isPassword ? "text" : "password";
+    icone.src = isPassword ? "../imgs/hide.png" : "../imgs/show.png";
+    icone.alt = isPassword ? "Ocultar senha" : "Mostrar senha";
+}
+
+/**
+ * Valida o formato do email
+ * @param {string} email - Email a ser validado
+ * @returns {boolean} - Retorna true se o email for válido
+ */
+function validarEmail(email) {
+    let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+/**
+ * Limpa os estilos de erro dos campos
+ */
+function limparEstilosErro() {
+    document.getElementById("erro").textContent = "";
+    document.getElementById("email").style.borderColor = "";
+    document.getElementById("senha").style.borderColor = "";
+}
+
+/**
+ * Manipula o envio do formulário de login
+ * @param {Event} event - Evento de submit
+ */
+async function handleLogin(event) {
+    event.preventDefault();
     
-    function mostrar_senha() {
-        if (senha.type === "password") {
-            senha.setAttribute("type", "text");
-            iconSenha.src = "../imgs/hide.png";
-        } else {
-            senha.setAttribute("type", "password");
-            iconSenha.src = "../imgs/show.png";
-        }
+    // Obter elementos do DOM
+    let emailInput = document.getElementById("email");
+    let senhaInput = document.getElementById("senha");
+    let erroElement = document.getElementById("erro");
+    
+    // Obter valores dos campos
+    let email = emailInput.value.trim();
+    let senha = senhaInput.value;
+    
+    // Limpar erros anteriores
+    limparEstilosErro();
+    
+    // Validação dos campos
+    if (!email || !senha) {
+        erroElement.textContent = "Preencha todos os campos";
+        if (!email) emailInput.style.borderColor = "red";
+        if (!senha) senhaInput.style.borderColor = "red";
+        return;
     }
     
-    // Tornar a função acessível globalmente se necessário
-    window.mostrar_senha = mostrar_senha;
-});
-
-async function entrar() {
-
-    // puxando os dados do html
-    let email = document.getElementById("email").value
-    let senha = document.getElementById("senha").value
-
-    // verificando se o email e senha estão preenchidos
-    if(email == "" || senha == ""){
-        document.getElementById("erro").innerHTML = "Preencha todos os campos"
-        document.getElementById("erro").style.color = 'red'
-        document.getElementById("email").style.borderColor = 'red'
-        document.getElementById("senha").style.borderColor = 'red'
-        return
-
-    // verificando se o email foi inserido no formato válido
-    } else if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
-        document.getElementById("erro").innerHTML = "Insira um email válido"
-        document.getElementById("erro").style.color = 'red'
-        return
+    if (!validarEmail(email)) {
+        erroElement.textContent = "Insira um email válido";
+        emailInput.style.borderColor = "red";
+        return;
     }
-
-    // salvando a api em uma váriavel
-    let url = "https://go-wash-api.onrender.com/api/login"
-
-    // criando o corpo da requisição
-    let parametros = {
-        "email": email,
-        "password": senha,
-        "user_type_id": 1
-    }
-
-    // fazendo a requisição
-    let api = await fetch(url,{
-        method: "POST",
-        body: JSON.stringify(parametros),
-        headers: {
-            "Content-Type":"application/json"
-        }
-    })
-
-    // verificando se teve erros
-    if (api.ok) {
+    
+    try {
+        // Configuração da requisição
+        let url = "https://go-wash-api.onrender.com/api/login";
+        let parametros = {
+            email: email,
+            password: senha,
+            user_type_id: 1
+        };
         
-        // salvando a resposta da api
-        let response = await api.json()
-
-        // avisando o usuario
-        alert("Logado com sucesso!!!")
-
-        // exibindo o resultado da api no console
-        console.log(response);
-
-    // erro de login ou senha
-    } else{
-        document.getElementById("erro").innerHTML = "E-mail ou senha não encontrados"
-        document.getElementById("erro").style.color = 'red'
+        // Enviar requisição
+        let response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(parametros),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        
+        // Processar resposta
+        if (response.ok) {
+            let data = await response.json();
+            console.log("Login bem-sucedido:", data);
+            alert("Login realizado com sucesso!");
+            // Redirecionar ou executar ações pós-login
+        } else {
+            let errorData = await response.json();
+            console.error("Erro no login:", errorData);
+            erroElement.textContent = "E-mail ou senha incorretos";
+        }
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        erroElement.textContent = "Erro de conexão. Tente novamente.";
     }
 }
+
+// Configuração inicial quando o DOM estiver carregado
+document.addEventListener("DOMContentLoaded", () => {
+    // Configurar evento de submit do formulário
+    document.getElementById("formLogin").addEventListener("submit", handleLogin);
+    
+    // Configurar função global para mostrar senha
+    window.mostrar_senha = () => {
+        let senhaInput = document.getElementById("senha");
+        let iconeSenha = document.getElementById("icon-senha");
+        togglePasswordVisibility(senhaInput, iconeSenha);
+    };
+});

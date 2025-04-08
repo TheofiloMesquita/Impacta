@@ -1,28 +1,108 @@
-.campo_login{
-    height: 70vh;
+/* Estilo principal do container de login */
+.campo_login {
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    font-size: 20px;
+    justify-content: center;
+    font-size: 1rem;
 }
-.campo_login .formulario{
-    width: 30vw;
-    height: 45vh;
+
+/* Estilo do formulário */
+.campo_login .formulario {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 20px;
     background-color: white;
-    border: 2px solid;
-    align-items: center;
+    border: 3px solid black;
     border-radius: 15px;
 }
+
+/* Estilo dos campos de entrada */
+.campo_login .dados {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 5vh;
+}
+
+.campo_login .dados label {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.campo_login .dados input {
+    width: 95%;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Estilo do botão de mostrar senha */
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: -20px;
+    margin-right: 20px;
+    position: relative;
+}
+
 .icon {
     width: 20px;
     height: 20px;
-    background-size: cover;
-    position: absolute;
-    margin-left: 18%;
-    margin-top: 1.5%;
+}
+
+/* Estilo do botão de login */
+.botao {
+    width: 70%;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #45a049;
+}
+
+/* Estilo da mensagem de erro */
+.mensagem-erro {
+    color: #d32f2f;
+    text-align: center;
+    min-height: 20px;
+    font-size: 0.9rem;
+}
+
+/* Estilo do link para cadastro */
+.link-cadastro {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.link {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .campo_login .formulario {
+        width: 95%;
+        padding: 20px;
+    }
 }

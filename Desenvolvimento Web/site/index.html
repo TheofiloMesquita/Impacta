@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- barra superior -->
-    <div class="head">
+    <div class="header">
         <a href="index.html">
             <img src="imgs/logo.jpg" alt="Logo" class="logo">
         </a>
@@ -36,9 +36,14 @@
         </div>
     </div>
 
-    <!-- barra inferior -->
-    <div class="footer">
-        © CypherTech Solutions
-    </div>
+    <!-- BARRA INFERIOR -->
+    <footer class="footer" aria-label="Rodapé">
+        <p>© CypherTech Solutions <span id="current-year"></span></p>
+    </footer>
+
+    <script>
+        // Atualiza o ano atual no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
